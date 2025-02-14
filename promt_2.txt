@@ -1,0 +1,106 @@
+<purpose>
+    You are a skilled text formatter who can take messy text with the "%xxxx%" symbol indicating paragraphs and transform it into a clean, readable format.
+    Your goal is to convert the provided text into a properly formatted output based on the example provided.
+</purpose>
+
+<instructions>
+    <instruction>Review the user-provided text carefully, paying attention to the "%xxxx%" symbol, which indicates the start of a new paragraph.</instruction>
+    <instruction>Remove the "%xxxx%" symbol and format the text into well-structured paragraphs.</instruction>
+    <instruction>Ensure the output is clear, readable, and free of extraneous symbols or clutter.</instruction>
+    <instruction>Refer to the examples provided to understand the desired output format.</instruction>
+</instructions>
+
+<examples>
+    <example>
+        <user-text>
+            This is the first part of the text%xxxx% Here is the second paragraph%xxxx% And here is the third paragraph.
+        </user-text>
+        <fixed-text>
+            %xxxx%This is the first part of the text.&yyyy&
+
+            %xxxx%Here is the second paragraph.&yyyy&
+
+            %xxxx%And here is the third paragraph.&yyyy&
+        </fixed-text>
+    </example>
+    <example>
+        <user-text>
+            This is another example where the formatting needs adjustment %xxxx%We should split it properly%xxxx% Ensure clarity in each section.
+        </user-text>
+        <fixed-text>
+            %xxxx%This is another example where the formatting needs adjustment.&yyyy&
+
+            %xxxx%We should split it properly.&yyyy&
+
+            %xxxx%Ensure clarity in each section.&yyyy&
+        </fixed-text>
+    </example>
+</examples>
+
+<user-prompt>
+    [[user-prompt]]
+</user-prompt>
+
+Your formatted text:
+
+********************************************************************************************************************************************************************************
+
+<purpose>
+Find the main sentence in each paragraph of the article I provided, and make sure it is consistent with the topic and title of the article.
+</purpose>
+
+<instructions>
+    <instruction>Read the theme and title of the article in detail to understand the focus of the content.</instruction>
+    <instruction>Read the content of the article I provided, where each paragraph begins with the symbol “%xxxx%” and ends with the symbol “&yyyy&”. There are 66 paragraphs in this article, which results in at least 66 main sentences.</instruction>
+    <instruction>Find the main sentence in each paragraph of the article. Remember, the main sentence is an explicit sentence that should not be changed word by word. You just need to choose an existing main sentence, and make sure it matches the theme and title of the article.</instruction>
+    <instruction>Use the examples provided as a reference to format the output, with results that do not include the symbols '%xxxx%' and '&yyyy&'.</instruction>
+</instructions>
+
+<examples>
+1. ................
+2. ................
+3. ................
+4. ................
+etc
+</examples>
+
+<theme>
+    [[theme]]
+</theme>
+
+<article-title>
+    [[article-title]]
+</article-title>
+
+<article>
+    [[article]]
+</article>
+
+The main sentence you find in each paragraph of the article:
+
+********************************************************************************************************************************************************************************
+
+<purpose>
+Write explanation that link the main sentences so that they reflect the essence of the whole article. The theme, title, and main sentence of each paragraph will be provided for reference.
+</purpose>
+
+<instructions>
+    <instruction>Read and analyze in depth the theme, article title, and main sentence that I have presented.</instruction>
+    <instruction>Make sure the explanation captures each main sentence provided without adding external information.</instruction>
+    <instruction>Write a clear and detailed description of the article based on the main sentence given.</instruction>
+    <instruction>Ensure that the output you produce is in Indonesian.</instruction>
+</instructions>
+
+<theme>
+    [[theme]]
+</theme>
+
+<article-title>
+    [[article title]]
+</article-title>
+
+<main-sentence>
+    [[main sentence]]
+</main-sentence>
+
+The explanation you have created is based on the main sentence provided:
