@@ -1,8 +1,10 @@
 #include <Wire.h>
+#include <LiquidCrystal_I2C.h>
 #include "MAX30105.h"
 #include "heartRate.h"
 
 MAX30105 particleSensor;
+LiquidCrystal_I2C lcd(0x27, 16, 2); 
 
 const byte RATE_SIZE = 4; 
 byte rates[RATE_SIZE];
@@ -22,7 +24,8 @@ bool tampilkan_hasil;
 void setup() {
   Serial.begin(115200);
   Serial.println("Initializing...");
-
+  lcd.init(); 
+  lcd.backlight();
   if (!particleSensor.begin(Wire)) { 
     Serial.println("MAX30105 tidak terdeteksi. Mohon periksa wiring/power.");
     while (1);
@@ -83,6 +86,12 @@ void loop() {
           irAvg /= RATE_SIZE;
         }
       }
+       int progress = map(millis() - interval, 0, 30000, 0, 100);
+       lcd.setCursor(0, 0);
+       lcd.print("Mengukur : ");
+       lcd.setCursor(0, 1);
+       lcd.print(progress);
+       lcd.print("%");
     }
     else {
       tampilkan_hasil = true;
@@ -96,7 +105,15 @@ void loop() {
     Serial.println(irAvg);
     Serial.print("BPM: ");
     Serial.println(beatAvg);
-    delay(6000);
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("IR: ");
+    lcd.print(irAvg); 
+    lcd.setCursor(0, 1);
+    lcd.print("HR: ");
+    lcd.print(beatAvg);
+    lcd.print(" bpm");
+    delay(7000);
   }
   else {
     Serial.print("IR=");
